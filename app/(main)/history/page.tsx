@@ -38,7 +38,7 @@ export default function HistoryPage() {
     const doc = new jsPDF();
     doc.text("Past Records Report (1 Year)", 14, 15);
     
-    const tableData = filteredPackets.map(p => [
+    const tableData: string[][] = filteredPackets.map(p => [
       p.packet_id,
       p.sender,
       p.duration,
