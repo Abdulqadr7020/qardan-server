@@ -68,8 +68,8 @@ export default function PacketsPage() {
     const doc = new jsPDF();
     doc.text("Packets Report", 14, 15);
     
-    const tableData = filteredPackets.map(p => [
-      p.id,
+    const tableData: string[][] = filteredPackets.map(p => [
+      p.packet_id ?? p.id ?? '',
       p.sender,
       p.duration,
       p.date.split('-').reverse().join('-'),
@@ -90,7 +90,7 @@ export default function PacketsPage() {
 
   const handleExportExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(filteredPackets.map(p => ({
-      'ID': p.id,
+      'ID': p.packet_id ?? p.id ?? '',
       'Sender': p.sender,
       'Duration': p.duration,
       'Date': p.date.split('-').reverse().join('-'),
