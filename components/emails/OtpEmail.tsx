@@ -31,7 +31,7 @@ export const OtpEmail: React.FC<Readonly<OtpEmailProps>> = ({
           src="https://qardan-hasan-app.vercel.app/logo.png" 
           alt="Qardan Logo" 
           style={{ width: '32px', height: '32px', display: 'block' }}
-          onerror="this.style.display='none'"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
       </div>
       <h1 style={{ fontSize: '24px', fontWeight: 'bold', margin: '0', color: '#fff' }}>Qardan DigiLocker</h1>
