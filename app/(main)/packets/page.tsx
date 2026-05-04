@@ -59,7 +59,8 @@ export default function PacketsPage() {
   const filteredPackets = packets
     .filter(p => 
       p.sender.toLowerCase().includes(search.toLowerCase()) ||
-      p.id.toLowerCase().includes(search.toLowerCase())
+      (p.packet_id ?? '').toLowerCase().includes(search.toLowerCase()) ||
+      (p.id ?? '').toLowerCase().includes(search.toLowerCase())
     )
     .sort((a, b) => parseDurationToDays(a.duration) - parseDurationToDays(b.duration));
 
